@@ -12,15 +12,19 @@ const form = useForm({
     searchString: '',
 });
 
+const submit = () => {
+    form.get(route('search-documents'));
+}
+
 </script>
 
 <template>
-    <Head title="Clients"/>
+    <Head title="Search"/>
 
     <BreezeAuthLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Clients
+                Search
             </h2>
         </template>
 
@@ -35,13 +39,3 @@ const form = useForm({
         </div>
     </BreezeAuthLayout>
 </template>
-
-<script>
-export default {
-    methods: {
-        submit() {
-            this.form.get(route('search-documents'));
-        },
-    }
-}
-</script>

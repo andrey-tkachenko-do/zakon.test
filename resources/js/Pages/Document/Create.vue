@@ -1,11 +1,16 @@
 <script setup>
-import {Head, useForm} from '@inertiajs/inertia-vue3';
+import {useForm} from '@inertiajs/inertia-vue3';
 import BreezeAuthLayout from '@/Layouts/Authenticated.vue';
 
 const form = useForm({
     title: '',
     body: '',
 });
+
+const submit = () => {
+    form.post(route('document.store'));
+}
+
 </script>
 
 <template>
@@ -33,13 +38,3 @@ const form = useForm({
         </div>
     </BreezeAuthLayout>
 </template>
-
-<script>
-export default {
-    methods: {
-        submit() {
-            this.form.post(route('document.store'));
-        }
-    }
-};
-</script>
